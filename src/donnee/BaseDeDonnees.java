@@ -16,7 +16,8 @@ public class BaseDeDonnees {
 		}
 		try {
 			// https://dev.mysql.com/downloads/connector/j/8.0.html
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agencespatiale", "nadine", "testtest");
+//			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/agencespatiale", "nadine", "testtest");
+			connection = DriverManager.getConnection("jdbc:xml://51.79.68.250/donnees/liste-planetes.php");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
