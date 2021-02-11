@@ -40,6 +40,7 @@ public class VueAjout extends Vue {
             @Override public void handle(ActionEvent e) 
             {
             	controleur.navigation(ActionNavigation.ACCUEIL);
+            	controleur.rafraichirDonnees();
             }
         });
 	}

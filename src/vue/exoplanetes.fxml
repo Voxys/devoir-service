@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -40,10 +39,15 @@
             <Label id="sous-titre" alignment="CENTER" layoutX="181.0" layoutY="80.0" prefHeight="39.0" prefWidth="296.0" text="AJOUTER" />
             <Label id="sous-titre" alignment="CENTER" layoutX="499.0" layoutY="80.0" opacity="0.35" prefHeight="39.0" prefWidth="296.0" text="MODIFIER" />
             <Label id="sous-titre" alignment="CENTER" layoutX="814.0" layoutY="80.0" opacity="0.35" prefHeight="39.0" prefWidth="296.0" text="SUPPRIMER" />
-            <TextField layoutX="182.0" layoutY="39.0" prefHeight="32.0" prefWidth="926.0" promptText="test" />
             <Button id="bouton-ajouter" layoutX="181.0" layoutY="76.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="296.0" text="Button" />
             <Button id="bouton-modifier" layoutX="499.0" layoutY="79.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="296.0" text="Button" />
             <Button id="bouton-supprimer" layoutX="814.0" layoutY="79.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="296.0" text="Button" />
+            <ImageView fitHeight="48.0" fitWidth="29.0" layoutX="60.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@decoration/refresh.png" />
+               </image>
+            </ImageView>
+            <Button id="bouton-actualiser" layoutX="58.0" layoutY="381.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="29.0" text="Button" />
          </children>
       </AnchorPane>
       <Pane id="entete" disable="true" layoutX="-3.0" prefHeight="92.0" prefWidth="1171.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

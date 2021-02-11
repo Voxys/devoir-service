@@ -39,4 +39,9 @@ public class Controleur {
 				break;
 		}	
 	}
+	
+	public void rafraichirDonnees() {
+		ExoplanetesDAO2 exoplaneteDAO = new ExoplanetesDAO2();
+		VueExoplanetes.getInstance().afficherEtudiants(exoplaneteDAO.listerExoplanetes());
+	}
 }
