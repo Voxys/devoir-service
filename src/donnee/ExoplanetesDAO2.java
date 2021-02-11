@@ -1,7 +1,10 @@
 package donnee;
 
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.StringBufferInputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -55,7 +58,6 @@ public class ExoplanetesDAO2 {
 				String periode = noeud.getElementsByTagName("periode").item(0).getTextContent();
 				String distance = noeud.getElementsByTagName("distance").item(0).getTextContent();
 
-				
 				Exoplanete exoplanete = new Exoplanete();
 				//exoplanete.setId(id);
 				exoplanete.setNom(planete);
@@ -74,5 +76,26 @@ public class ExoplanetesDAO2 {
 		}
 		
 		return listeEtudiants;
+	}
+	
+	public void ajouterExoplanete(Exoplanete exoplanete) {
+		
+		String URL_AJOUTER_ETUDIANT = "http://51.79.68.250/donnees/ajouter-exoplanete.php";
+		String parametres = "planete=" + exoplanete.getNom() + "&etoile=" + exoplanete.getEtoile();
+		try {
+			URL url = new URL(URL_AJOUTER_ETUDIANT);
+			HttpURLConnection connexion = (HttpURLConnection) url.openConnection();
+			connexion.setDoOutput(true);
+			connexion.setRequestMethod("POST");
+			connexion.setFixedLengthStreamingMode(parametres.getBytes().length);
+			connexion.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+			OutputStream flux = connexion.getOutputStream();
+			OutputStreamWriter messager = new OutputStreamWriter(flux);
+			messager.write(parametres);
+			messager.close();
+			connexion.disconnect();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

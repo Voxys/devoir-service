@@ -17,6 +17,7 @@ public abstract class Navigateur extends Application{ // Application de javafx e
 		instance = this;
 		Logger.setLevel(Logger.INFO);
 		VueExoplanetes.getInstance().activerControles();
+		VueAjout.getInstance().activerControles();
 	}
 	
 	public void afficherVue(Vue vue)

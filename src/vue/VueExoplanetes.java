@@ -4,11 +4,15 @@ import java.util.List;
 
 import com.sun.media.jfxmedia.logging.Logger;
 
+import controleur.Controleur.ActionNavigation;
 import controleur.ControleurExoplanetes;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modele.Exoplanete;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 public class VueExoplanetes extends Vue{
 	protected ControleurExoplanetes controleur;
@@ -25,9 +29,20 @@ public class VueExoplanetes extends Vue{
 	public void activerControles()
 	{
 		super.activerControles();
+		
+		Button boutonAjouter = (Button)lookup("#bouton-ajouter");
+		
+
+		boutonAjouter.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() 
+		{
+            @Override public void handle(ActionEvent e) 
+            {
+            	controleur.navigation(ActionNavigation.AJOUTER);
+            }
+        });
 	}
 	
-	public void afficherEtudiants(List<Exoplanete> etudiants)
+	public void afficherEtudiants(List<Exoplanete> exoplanetes)
 	{	
 		// Recuperation de l'objet dans lequel afficher
 		TableView tableau = (TableView)lookup("#liste-exoplanetes");
@@ -52,11 +67,10 @@ public class VueExoplanetes extends Vue{
 		colonneDistance.setCellValueFactory(new PropertyValueFactory<>("distance"));
 		
 		// Ajout des donnees
-		for(Exoplanete etudiant : etudiants)
-		{
-			System.out.println(etudiant.getNom());
-			tableau.getItems().add(etudiant);
+		for(Exoplanete exoplanete : exoplanetes)
+		{ 
+			System.out.println(exoplanete.getNom());
+			tableau.getItems().add(exoplanete);
 		}
-	}
-
+	 }
 }

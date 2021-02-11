@@ -7,8 +7,8 @@ public class App {
 
 	public static void main(String[] parametres) {
 		
-		ExoplanetesDAO2 etudiantDAO = new ExoplanetesDAO2();
-		etudiantDAO.listerExoplanetes();
+		ExoplanetesDAO2 exoplaneteDAO = new ExoplanetesDAO2();
+		exoplaneteDAO.listerExoplanetes();
 		
 		Fenetre.launch(Fenetre.class, parametres);	
 	}

@@ -15,7 +15,7 @@ public class ExoplanetesDAO {
 	{
 		Connection connection = BaseDeDonnees.getInstance().getConnection();
 		
-		List<Exoplanete> listeEtudiants =  new ArrayList<Exoplanete>();			
+		List<Exoplanete> listeExoplanetes =  new ArrayList<Exoplanete>();			
 		Statement requeteListeExoplanetes;
 		try {
 			requeteListeExoplanetes = connection.createStatement();
@@ -43,12 +43,12 @@ public class ExoplanetesDAO {
 				exoplanete.setPeriode(periode);
 				exoplanete.setDistance(distance);
 				
-				listeEtudiants.add(exoplanete);
+				listeExoplanetes.add(exoplanete);
 			}
 		} catch (SQLException e) {
 				e.printStackTrace();
 		}
 		
-		return listeEtudiants;
+		return listeExoplanetes;
 	}
 }

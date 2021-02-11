@@ -12,6 +12,4 @@ public class ControleurExoplanetes extends Controleur{
 	{
 		Logger.logMsg(Logger.INFO, "new ControleurEcole()");
 	}
-
-
 }
