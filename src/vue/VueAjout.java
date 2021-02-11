@@ -23,6 +23,16 @@ public class VueAjout extends Vue {
 	{
 		super.activerControles();
 		
+		Button boutonAjout = (Button)lookup("#bouton-ajout");
+		
+		boutonAjout.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() 
+		{
+            @Override public void handle(ActionEvent e) 
+            {
+            	controleur.ajouterExoplanete(lireExoplaneteEntre());
+            }
+        });
+		
 		Button boutonRetour = (Button)lookup("#bouton-retour");
 		
 		boutonRetour.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() 
@@ -36,17 +46,17 @@ public class VueAjout extends Vue {
 
 	public Exoplanete lireExoplaneteEntre()
 	{
-		Exoplanete etudiant = new Exoplanete();
+		Exoplanete exoplanete = new Exoplanete();
 		
-		TextField champsPrenom = (TextField) lookup("#textfield-planete");
-		TextField champsNom = (TextField) lookup("#textfield-etoile");
+		TextField champsPlanete = (TextField) lookup("#textfield-planete");
+		TextField champsEtoile = (TextField) lookup("#textfield-etoile");
 		
-		etudiant.setNom(champsPrenom.getText());
-		etudiant.setEtoile(champsNom.getText());
+		exoplanete.setNom(champsPlanete.getText());
+		exoplanete.setEtoile(champsEtoile.getText());
 		
-		champsPrenom.setText("");
-		champsNom.setText("");
+		champsPlanete.setText("");
+		champsEtoile.setText("");
 		
-		return etudiant;
+		return exoplanete;
 	}
 }
