@@ -37,8 +37,8 @@
                </effect>
             </Separator>
             <Label id="sous-titre" alignment="CENTER" layoutX="181.0" layoutY="80.0" prefHeight="39.0" prefWidth="296.0" text="AJOUTER" />
-            <Label id="sous-titre" alignment="CENTER" layoutX="499.0" layoutY="80.0" opacity="0.35" prefHeight="39.0" prefWidth="296.0" text="MODIFIER" />
-            <Label id="sous-titre" alignment="CENTER" layoutX="814.0" layoutY="80.0" opacity="0.35" prefHeight="39.0" prefWidth="296.0" text="SUPPRIMER" />
+            <Label id="ui-modifier" alignment="CENTER" layoutX="499.0" layoutY="80.0" opacity="0.35" prefHeight="39.0" prefWidth="296.0" text="MODIFIER" />
+            <Label id="ui-supprimer" alignment="CENTER" layoutX="814.0" layoutY="80.0" opacity="0.35" prefHeight="39.0" prefWidth="296.0" text="SUPPRIMER" />
             <Button id="bouton-ajouter" layoutX="181.0" layoutY="76.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="296.0" text="Button" />
             <Button id="bouton-modifier" layoutX="499.0" layoutY="79.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="296.0" text="Button" />
             <Button id="bouton-supprimer" layoutX="814.0" layoutY="79.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="296.0" text="Button" />

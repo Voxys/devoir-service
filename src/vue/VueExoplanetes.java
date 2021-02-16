@@ -8,6 +8,7 @@ import controleur.Controleur.ActionNavigation;
 import donnee.ExoplanetesDAO2;
 import controleur.ControleurExoplanetes;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,6 +23,8 @@ public class VueExoplanetes extends Vue{
 	public static VueExoplanetes getInstance() {if(null==instance)instance = new VueExoplanetes();return VueExoplanetes.instance;}; 
 	
 	TableView tableau = (TableView)lookup("#liste-exoplanetes");
+	Label uiModifier = (Label)lookup("#ui-modifier");
+	Label uiSupprimer = (Label)lookup("#ui-supprimer");
 	
 	private VueExoplanetes() 
 	{
@@ -37,7 +40,6 @@ public class VueExoplanetes extends Vue{
 		ExoplanetesDAO2 exoplaneteDAO = new ExoplanetesDAO2();
 		
 		Button boutonActualiser = (Button)lookup("#bouton-actualiser");
-		
 		boutonActualiser.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() 
 		{
             @Override public void handle(ActionEvent e) 
@@ -47,7 +49,6 @@ public class VueExoplanetes extends Vue{
         });
 
 		Button boutonAjouter = (Button)lookup("#bouton-ajouter");
-		
 		boutonAjouter.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() 
 		{
             @Override public void handle(ActionEvent e) 
@@ -55,6 +56,26 @@ public class VueExoplanetes extends Vue{
             	controleur.navigation(ActionNavigation.AJOUTER);
             }
         });
+		
+		Button boutonSupprimer = (Button)lookup("#bouton-supprimer");
+		boutonSupprimer.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() 
+		{
+            @Override public void handle(ActionEvent e) 
+            {
+            	ButtonClicked();
+            }
+        });
+		
+		
+		
+		tableau.setOnMouseClicked(event -> {
+		    // Make sure the user clicked on a populated item
+		    if (tableau.getSelectionModel().getSelectedItem() != null) {
+		        uiModifier.setOpacity(1);
+		        uiSupprimer.setOpacity(1);
+		    }
+		});
+
 	}
 	
 	public void afficherEtudiants(List<Exoplanete> exoplanetes)
@@ -88,4 +109,15 @@ public class VueExoplanetes extends Vue{
 			tableau.getItems().add(exoplanete);
 		}
 	 }
+	
+		public void ButtonClicked()
+		{
+		  ObservableList<Exoplanete> row , allRows;
+		  allRows = tableau.getItems();
+		  row = tableau.getSelectionModel().getSelectedItems();   
+		  System.out.println("ALLROWS:" + allRows + "ROW:"  + row);
+		  row.forEach(allRows::remove);
+		  uiModifier.setOpacity(0.35);
+	      uiSupprimer.setOpacity(0.35);
+		}
 }

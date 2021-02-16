@@ -57,6 +57,14 @@ https://pixabay.com/fr/vectors/europe-monde-globe-terre-planet-4103975/
     -fx-font-size:30;
 }
 
+#ui-supprimer, #ui-modifier
+{
+    -fx-background-color:black;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, green, blue);
+    -fx-text-fill:white;
+    -fx-font-size:30;
+}
+
 TableView
 {
     -fx-background-color: transparent;
