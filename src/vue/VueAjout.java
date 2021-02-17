@@ -51,12 +51,30 @@ public class VueAjout extends Vue {
 		
 		TextField champsPlanete = (TextField) lookup("#textfield-planete");
 		TextField champsEtoile = (TextField) lookup("#textfield-etoile");
-		
+		TextField champsMasse = (TextField) lookup("#textfield-masse");
+		TextField champsRayon = (TextField) lookup("#textfield-rayon");
+		TextField champsFlux = (TextField) lookup("#textfield-flux");
+		TextField champsTemperature = (TextField) lookup("#textfield-temperature");
+		TextField champsPeriode = (TextField) lookup("#textfield-periode");
+		TextField champsDistance = (TextField) lookup("#textfield-distance");
+
 		exoplanete.setNom(champsPlanete.getText());
 		exoplanete.setEtoile(champsEtoile.getText());
+		exoplanete.setMasse(champsMasse.getText());
+		exoplanete.setRayon(champsRayon.getText());
+		exoplanete.setFlux(champsFlux.getText());
+		exoplanete.setTemperature(champsTemperature.getText());
+		exoplanete.setPeriode(champsPeriode.getText());
+		exoplanete.setDistance(champsDistance.getText());
 		
 		champsPlanete.setText("");
 		champsEtoile.setText("");
+		champsMasse.setText("");
+		champsRayon.setText("");
+		champsFlux.setText("");
+		champsTemperature.setText("");
+		champsPeriode.setText("");
+		champsDistance.setText("");
 		
 		return exoplanete;
 	}

@@ -80,10 +80,14 @@ public class ExoplanetesDAO2 {
 	
 	public void ajouterExoplanete(Exoplanete exoplanete) {
 		
-		String URL_AJOUTER_ETUDIANT = "http://51.79.68.250/donnees/ajouter-exoplanete.php";
-		String parametres = "planete=" + exoplanete.getNom() + "&etoile=" + exoplanete.getEtoile();
+		String URL_AJOUTER_EXOPLANETE = "http://51.79.68.250/donnees/ajouter-exoplanete.php";
+		
+		String parametres = "planete=" + exoplanete.getNom() + "&etoile=" + exoplanete.getEtoile() + "&masse=" + exoplanete.getMasse()
+		+ "&rayon=" + exoplanete.getRayon() + "&flux=" + exoplanete.getFlux() + "&temperature=" 
+		+ exoplanete.getTemperature() + "&periode=" + exoplanete.getPeriode() + "&distance=" + exoplanete.getDistance();
+		
 		try {
-			URL url = new URL(URL_AJOUTER_ETUDIANT);
+			URL url = new URL(URL_AJOUTER_EXOPLANETE);
 			HttpURLConnection connexion = (HttpURLConnection) url.openConnection();
 			connexion.setDoOutput(true);
 			connexion.setRequestMethod("POST");
@@ -94,6 +98,57 @@ public class ExoplanetesDAO2 {
 			messager.write(parametres);
 			messager.close();
 			connexion.disconnect();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void modifierExoplanete(Exoplanete exoplanete, String initialPlanete) {
+		
+		String URL_MODIFIER_EXOPLANETE = "http://51.79.68.250/donnees/modifier-exoplanete.php";
+		
+		String parametres = "planete=" + exoplanete.getNom() + "&etoile=" + exoplanete.getEtoile()+ "&masse=" + exoplanete.getMasse()
+		+ "&rayon=" + exoplanete.getRayon() + "&flux=" + exoplanete.getFlux() 
+		+ "&temperature=" + exoplanete.getTemperature() + "&periode=" + exoplanete.getPeriode() 
+		+ "&distance=" + exoplanete.getDistance() + "&initialPlanete=" + initialPlanete;
+
+		try {
+			URL url = new URL(URL_MODIFIER_EXOPLANETE);
+			HttpURLConnection connexion = (HttpURLConnection) url.openConnection();
+			connexion.setDoOutput(true);
+			connexion.setRequestMethod("POST");
+			connexion.setFixedLengthStreamingMode(parametres.getBytes().length);
+			connexion.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+			OutputStream flux = connexion.getOutputStream();
+			OutputStreamWriter messager = new OutputStreamWriter(flux);
+			messager.write(parametres);
+			messager.close();
+			connexion.disconnect();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void supprimerExoplanete(Exoplanete exoplanete) {
+		System.out.println("supprimer exoplanete");
+		
+		String URL_SUPPRIMER_EXOPLANETE = "http://51.79.68.250/donnees/supprimer-exoplanete.php";
+		String parametres = "planete=" + exoplanete.getNom();
+		try {
+			URL url = new URL(URL_SUPPRIMER_EXOPLANETE);
+			HttpURLConnection connexion = (HttpURLConnection) url.openConnection();
+			connexion.setDoOutput(true);
+			connexion.setRequestMethod("POST");
+			connexion.setFixedLengthStreamingMode(parametres.getBytes().length);
+			connexion.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+			OutputStream flux = connexion.getOutputStream();
+			OutputStreamWriter messager = new OutputStreamWriter(flux);
+			messager.write(parametres);
+			messager.close();
+			connexion.disconnect();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

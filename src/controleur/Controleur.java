@@ -2,17 +2,19 @@ package controleur;
 
 import donnee.ExoplanetesDAO;
 import donnee.ExoplanetesDAO2;
+import modele.Exoplanete;
 import vue.Navigateur;
 import vue.Vue;
 import vue.VueAjout;
 import vue.VueExoplanetes;
+import vue.VueModifier;
 
 //import vue.Navigateur;
 //import vue.*;
 
 public class Controleur {
 	
-	public enum ActionNavigation {ACCUEIL, AJOUTER, EDITER};
+	public enum ActionNavigation {ACCUEIL, AJOUTER, MODIFIER};
 
 	public static Vue selectionnerVuePrincipale()
 	{
@@ -27,14 +29,13 @@ public class Controleur {
 		{
 			case ACCUEIL:
 				Navigateur.getInstance().afficherVue(VueExoplanetes.getInstance());
-
 				break;
 			case AJOUTER:
 				Navigateur.getInstance().afficherVue(VueAjout.getInstance());
 				break;
-//			case EDITER:
-////				Navigateur.getInstance().afficherVue(VueSalonJeuxVideo.getInstance());
-//				break;
+			case MODIFIER:
+				Navigateur.getInstance().afficherVue(VueModifier.getInstance());
+				break;
 			default:
 				break;
 		}	
