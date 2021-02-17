@@ -35,6 +35,7 @@ public class Controleur {
 				break;
 			case MODIFIER:
 				Navigateur.getInstance().afficherVue(VueModifier.getInstance());
+				VueModifier.getInstance().setTextFielSelectedExoplaneteValue();
 				break;
 			default:
 				break;

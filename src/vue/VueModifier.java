@@ -3,6 +3,7 @@ import controleur.ControleurExoplanetes;
 import controleur.Controleur.ActionNavigation;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import modele.Exoplanete;
@@ -28,7 +29,7 @@ public class VueModifier extends Vue {
 	{
 		super("exoplanete-modif.fxml"); 
 		super.controleur = this.controleur = new ControleurExoplanetes();
-//		
+		
 //		try {
 //			System.out.println(controleur.getSelectedExoplanete() + " VUEMODIFIER");
 //        	selectedExoplanete = controleur.getSelectedExoplanete();
@@ -38,23 +39,25 @@ public class VueModifier extends Vue {
 //			e.printStackTrace();
 //		}
 	}
+	
+	
 		
 	public void activerControles()
 	{
 		super.activerControles();
-		System.out.println("test");
-						
+		
 		Button boutonModifier = (Button)lookup("#bouton-modifier");
 		
 		boutonModifier.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() 
 		{
             @Override public void handle(ActionEvent e) 
             {
-            	
-            	// BESOIN DEXECUTER CETTE PARTIE ONLOAD //
-        		
+            	// BESOIN DEXECUTER CETTE PARTIE ONLOAD //	
             	selectedExoplanete = controleur.getSelectedExoplanete();
+            	
             	controleur.modifierExoplanete(lireExoplaneteEntre(), selectedExoplanete.getNom()); //le nom initial de la planete me sert d'id pour le moment
+            	//setTextFielSelectedExoplaneteValue(); //test affichage dans les champs
+
             }
         });
 		
@@ -96,6 +99,8 @@ public class VueModifier extends Vue {
 	}
 	
 	public void setTextFielSelectedExoplaneteValue() {
+		selectedExoplanete = controleur.getSelectedExoplanete();
+		
 		champsPlanete.setText(selectedExoplanete.getNom());
 		champsEtoile.setText(selectedExoplanete.getEtoile());
 		champsMasse.setText(selectedExoplanete.getMasse());
