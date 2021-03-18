@@ -5,7 +5,7 @@ import java.util.List;
 import com.sun.media.jfxmedia.logging.Logger;
 
 import controleur.Controleur.ActionNavigation;
-import donnee.ExoplanetesDAO2;
+import donnee.ExoplanetesDAO;
 import controleur.ControleurExoplanetes;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,7 +38,7 @@ public class VueExoplanetes extends Vue{
 	{
 		super.activerControles();
 		
-		ExoplanetesDAO2 exoplaneteDAO = new ExoplanetesDAO2();
+		ExoplanetesDAO exoplaneteDAO = new ExoplanetesDAO();
 		
 		Button boutonActualiser = (Button)lookup("#bouton-actualiser");
 		boutonActualiser.setOnAction((EventHandler<ActionEvent>) new EventHandler<ActionEvent>() 
@@ -102,7 +102,7 @@ public class VueExoplanetes extends Vue{
 		});
 	}
 	
-	public void afficherEtudiants(List<Exoplanete> exoplanetes)
+	public void afficherExoplanetes(List<Exoplanete> exoplanetes)
 	{	
 		//Nettoyage des possibles données précédentes
 		tableau.getItems().clear();

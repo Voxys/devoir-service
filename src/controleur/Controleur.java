@@ -1,7 +1,6 @@
 package controleur;
 
 import donnee.ExoplanetesDAO;
-import donnee.ExoplanetesDAO2;
 import modele.Exoplanete;
 import vue.Navigateur;
 import vue.Vue;
@@ -18,8 +17,8 @@ public class Controleur {
 
 	public static Vue selectionnerVuePrincipale()
 	{
-		ExoplanetesDAO2 exoplaneteDAO = new ExoplanetesDAO2();
-		VueExoplanetes.getInstance().afficherEtudiants(exoplaneteDAO.listerExoplanetes());
+		ExoplanetesDAO exoplaneteDAO = new ExoplanetesDAO();
+		VueExoplanetes.getInstance().afficherExoplanetes(exoplaneteDAO.listerExoplanetes());
 		return VueExoplanetes.getInstance();
 	}		
 	
@@ -43,7 +42,7 @@ public class Controleur {
 	}
 	
 	public void rafraichirDonnees() {
-		ExoplanetesDAO2 exoplaneteDAO = new ExoplanetesDAO2();
-		VueExoplanetes.getInstance().afficherEtudiants(exoplaneteDAO.listerExoplanetes());
+		ExoplanetesDAO exoplaneteDAO = new ExoplanetesDAO();
+		VueExoplanetes.getInstance().afficherExoplanetes(exoplaneteDAO.listerExoplanetes());
 	}
 }
